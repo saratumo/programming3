@@ -1,4 +1,4 @@
-class Rain {
+module.exports = class Rain {
     constructor(x, y, index) {
         this.x = x;
         this.y = y;

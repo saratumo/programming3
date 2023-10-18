@@ -1,3 +1,4 @@
+socket = io()
 var matrix = [];
 var side = 60
 var n = 14;
@@ -49,11 +50,11 @@ function setup() {
                 predatorArr.push(pre)
             }
             else if (matrix[y][x] == 4) {
-                var rai = new Rain(x, y, 4)
-                RainArr.push(rai)
+                var Rain = new Rain(x, y, 4)
+                RainArr.push(Rain)
             }
             else if (matrix[y][x] == 5) {
-                var uni = new Unicorn(x, y, 5)
+                var Unicorn = new Unicorn(x, y, 5)
                 UnicornArr.push(uni)
             } else if(matrix[y][x] == 6){
                 boomSingle = new Boomb(x, y, 6)
@@ -112,3 +113,9 @@ const myInterval =  setInterval(()=>{
     grassArr.push(gr);
     clearInterval(myInterval);
 },10000)
+
+socket.on("matrix",function(matrix){
+    
+})
+
+

@@ -1,4 +1,4 @@
-class Unicorn {
+module.exports =class Unicorn {
     constructor(x, y, index) {
         this.x = x;
         this.y = y;
