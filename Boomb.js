@@ -5,7 +5,6 @@ module.exports = class Boomb {
         this.index = index;
     }
     boooom() {
-        
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
                 matrix[y][x] = 0;
