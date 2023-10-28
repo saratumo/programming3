@@ -3,7 +3,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-app.use(express.static("../lesson"));
+app.use(express.static("../programming3"));
 
 app.get("/", function (req, res) {
   res.redirect("index.html");
@@ -30,8 +30,8 @@ RainArr = [];
 UnicornArr = [];
 floodArr = []
 boomSingle = null;
-var n = 14;
-var m = 20;
+var n = 30;
+var m = 30;
 
 for (let i = 0; i < n; i++) {
   matrix.push([])
@@ -102,6 +102,10 @@ function drawGame() {
   for (var i in grassArr,predatorArr,RainArr,UnicornArr){
     grassArr,predatorArr,RainArr,UnicornArr[i].eat()
   }
+  io.emit("grassCount", grassArr.length)
+  io.emit("UnicornCount",UnicornArr.length)
+   io.emit("grassEaterCount",grassEaterArr.length)
+
   io.emit("matrix", matrix)
 }
 
@@ -122,6 +126,3 @@ io.on("connection", (socket) => {
   socket.emit("matrix", matrix)
   startGame()
 })
-
-
-// interval
